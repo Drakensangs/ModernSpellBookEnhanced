@@ -1,0 +1,54 @@
+## Interface: 11200
+## Title: Modern Spellbook Enhanced
+## Notes: Changes the spellbook to a more modern look inspired by the retail version. Requires ClassicAPI.
+## Notes-deDE: Gibt dem Zauberbuch ein modernes Aussehen nach dem Vorbild der Retail-Version. Benötigt ClassicAPI.
+## Notes-esES: Da al libro de hechizos un aspecto más moderno, inspirado en la versión retail. Requiere ClassicAPI.
+## Notes-frFR: Donne au grimoire un aspect plus moderne, inspiré de la version retail. Nécessite ClassicAPI.
+## Notes-koKR: 마법책을 최신 버전에서 영감을 받은 현대적인 모습으로 바꿉니다. ClassicAPI가 필요합니다.
+## Notes-zhCN: 将法术书改为受正式服启发的现代外观。需要 ClassicAPI。
+## Notes-zhTW: 將法術書改為受正式服啟發的現代外觀。需要 ClassicAPI。
+## Author: Original addon: vegeta1k95; Enhanced version: Drakensangs
+## Version: 1.0
+## OptionalDeps: Clique
+
+## SavedVariablesPerCharacter: ModernSpellBook_DB
+
+# Localization: English always (the default), then only the client's own language
+Localization\localization.lua
+Localization\localization.cn.lua    [AllowLoadTextLocale zhCN]
+Localization\localization.de.lua    [AllowLoadTextLocale deDE]
+Localization\localization.es.lua    [AllowLoadTextLocale esES]
+Localization\localization.fr.lua    [AllowLoadTextLocale frFR]
+Localization\localization.ko.lua    [AllowLoadTextLocale koKR]
+Localization\localization.tw.lua    [AllowLoadTextLocale zhTW]
+
+# Lib
+Lib\MSB_Class.lua
+Lib\MSB_API.lua
+Lib\MSB_UIFactories.lua
+Lib\MSB_TextStyle.lua
+
+# Core
+Core\MSB_Icon.lua
+Core\MSB_SlashCommands.lua
+
+# Spellbook
+Spellbook\MSB_FrameChrome.lua
+Spellbook\MSB_Spellbook.lua
+Spellbook\MSB_BlizzardBook.lua
+Spellbook\MSB_SpellData.lua
+Core\MSB_Settings.lua
+Spellbook\MSB_ActionBar.lua
+Spellbook\MSB_SpellIcon.lua
+Spellbook\MSB_SpellItem.lua
+Spellbook\MSB_RankFlyout.lua
+Spellbook\MSB_CategoryItem.lua
+Spellbook\MSB_SearchBar.lua
+Spellbook\MSB_Stances.lua
+Spellbook\MSB_SpellSources.lua
+Spellbook\MSB_TrainerData.lua
+Spellbook\MSB_Tabs.lua
+Spellbook\MSB_TalentService.lua
+
+# Optional compatibility
+Compat\MSB_Clique.lua
