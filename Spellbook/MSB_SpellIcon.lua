@@ -400,7 +400,8 @@ MSB_class "MSB_CSpellBookIcon"
 			self:SetOctagonShown(false)
 		else
 			self.icon:SetTexture(spellInfo.spellIcon)
-			self.icon:SetMask(nil)
+			-- "" removes the mask (nil is no longer allowed)
+			self.icon:SetMask("")
 			self:SetRingMask(false)
 			self.icon:SetTexCoord(ICON_TEXCOORD[1], ICON_TEXCOORD[2], ICON_TEXCOORD[3], ICON_TEXCOORD[4])
 			self.icon:SetWidth(self.size)
