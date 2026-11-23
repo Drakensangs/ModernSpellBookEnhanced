@@ -128,6 +128,7 @@ local CLASS_SOURCES = {
 	},
 	DRUID = {
 		quest = {
+			[18960] = { [NIGHTELF] = 5921, [TAUREN] = 5922 },	-- Teleport: Moonglade
 			[5487] = { [NIGHTELF] = 6001, [TAUREN] = 6002 },	-- Bear Form
 			[6795] = { [NIGHTELF] = 6001, [TAUREN] = 6002 },	-- Growl
 			[6807] = { [NIGHTELF] = 6001, [TAUREN] = 6002 },	-- Maul
@@ -138,13 +139,16 @@ local CLASS_SOURCES = {
 		needs = {
 			[9634] = 5487,	-- Dire Bear Form: Bear Form
 		},
+		replacedBy = {
+			[5487] = 9634,	-- Bear Form: Dire Bear Form
+		},
 	},
 }
 
 MSB_class "MSB_CSpellSources"
 {
 	__init = function(self)
-		self.quest, self.book, self.needs, self.general = {}, {}, {}, {}
+		self.quest, self.book, self.needs, self.general, self.replacedBy = {}, {}, {}, {}, {}
 		local sources = self
 		self.frame = CreateFrame("Frame")
 		self.frame:RegisterEvent("PLAYER_LOGIN")
@@ -179,6 +183,7 @@ MSB_class "MSB_CSpellSources"
 		self.book = data.book or {}
 		self.needs = data.needs or {}
 		self.general = data.general or {}
+		self.replacedBy = data.replacedBy or {}
 		CLASS_SOURCES = nil
 	end;
 
@@ -189,6 +194,13 @@ MSB_class "MSB_CSpellSources"
 	GetNeeds = function(self, spellID)
 		local fromTrainer = ModernSpellBook_DB.trainerNeeds[spellID]
 		return fromTrainer or self.needs[spellID]
+	end;
+
+	-- True when a spell that replaces this one is known (Dire Bear Form
+	-- replaces Bear Form), so it is not missing from the spellbook
+	IsReplaced = function(self, spellID)
+		local by = self.replacedBy[spellID]
+		return by ~= nil and (IsSpellKnown(by) or IsPlayerSpell(by)) and true or false
 	end;
 
 	-- Trainer level of a general ability of the player's class, else nil

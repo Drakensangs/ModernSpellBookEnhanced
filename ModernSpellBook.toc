@@ -8,7 +8,7 @@
 ## Notes-zhCN: 将法术书改为受正式服启发的现代外观。需要 ClassicAPI。
 ## Notes-zhTW: 將法術書改為受正式服啟發的現代外觀。需要 ClassicAPI。
 ## Author: Original addon: vegeta1k95; Enhanced version: Drakensangs
-## Version: 1.1
+## Version: 1.2
 ## OptionalDeps: Clique
 
 ## SavedVariablesPerCharacter: ModernSpellBook_DB

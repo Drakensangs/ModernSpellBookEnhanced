@@ -281,6 +281,8 @@ MSB_class "MSB_CTrainerDataService"
 
 		local function Add(spellID, isTrainerSpell)
 			if (IsSpellKnown(spellID) or IsPlayerSpell(spellID)) then return end
+			-- Replaced by a known spell (Bear Form once Dire Bear Form is learned)
+			if (MSB_SpellSources:IsReplaced(spellID)) then return end
 			local name, rank, rankNum = MSB_SpellNameRank(spellID)
 			if (not name) then return end
 			-- Skips ranks at or below one you know
